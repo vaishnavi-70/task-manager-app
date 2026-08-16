@@ -2,7 +2,6 @@ const taskInput = document.getElementById('taskInput');
 const addBtn = document.getElementById('addBtn');
 const taskList = document.getElementById('taskList');
 
-// 1. Server se tasks fetch karke screen par dikhana
 async function fetchTasks() {
     try {
         const res = await fetch('/api/tasks');
@@ -22,7 +21,6 @@ async function fetchTasks() {
     }
 }
 
-// 2. Naya task add karna
 addBtn.addEventListener('click', async () => {
     const title = taskInput.value.trim();
     if (!title) return alert('Please enter a task!');
@@ -43,7 +41,6 @@ addBtn.addEventListener('click', async () => {
     }
 });
 
-// 3. Task delete karna
 async function deleteTask(id) {
     try {
         const res = await fetch(`/api/tasks/${id}`, {
@@ -58,5 +55,3 @@ async function deleteTask(id) {
     }
 }
 
-// Page load hote hi tasks load honge
-fetchTasks();
